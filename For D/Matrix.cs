@@ -126,7 +126,7 @@ namespace For_D
                 for (int j = 0; j < data.N; j++)
                 {
                     if (i == 0) res[i, j] = data[i, j];
-                    else res[i, j] = data[i - 1, j] + data[i, j];
+                    else res[i, j] = res[i - 1, j] + data[i, j];
                 }
             }
             return res;
