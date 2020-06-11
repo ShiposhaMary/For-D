@@ -27,12 +27,13 @@ namespace For_D
             var ph2 = ph.y;
             var ph3 = ph.z;
             var df = Matrix.DemodulRefl(ph1, ph2, ph3);
-            for (int j = 0; j < df.M; j++)
+            var bf = Matrix.ButterworthFilter(df);
+            for (int j = 0; j < bf.M; j++)
             {
                 //chart1.Series[0].Points.AddXY(j, ph1[0,j]);
                 //chart1.Series[1].Points.AddXY(j, ph2[0,j]);
                 //chart1.Series[2].Points.AddXY(j, ph3[0,j]);
-                chart1.Series[3].Points.AddXY(j, df[j, 0]);
+                chart1.Series[3].Points.AddXY(j, bf[j, 0]);
             }
             
         }
