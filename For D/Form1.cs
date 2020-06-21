@@ -20,22 +20,34 @@ namespace For_D
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            Matrix matrix=Matrix.Reading( @"C:\Work\04-06-2020_15-56-01\1232042816.17.stage0");
-            var ph = Matrix.MatrixSeparation(matrix);
-            var ph1 = ph.x;
-            var ph2 = ph.y;
-            var ph3 = ph.z;
-            var df = Matrix.DemodulRefl(ph1, ph2, ph3);
-            var bf = Matrix.ButterworthFilter(df);
-            for (int j = 0; j < bf.M; j++)
+           Matrix.bfBuffer = new double[7, 103];
+           Matrix.resBuffer = new Matrix(600,103);
+            string[] source = Directory.GetFiles(@"C:\Work\duble\");
+            foreach (var file in source)
             {
-                //chart1.Series[0].Points.AddXY(j, ph1[0,j]);
-                //chart1.Series[1].Points.AddXY(j, ph2[0,j]);
-                //chart1.Series[2].Points.AddXY(j, ph3[0,j]);
-                chart1.Series[3].Points.AddXY(j, bf[j, 0]);
+                Matrix matrix = Matrix.Reading(file);
+                var ph = Matrix.MatrixSeparation(matrix);
+                var ph1 = ph.x;
+                var ph2 = ph.y;
+                var ph3 = ph.z;
+                var df = Matrix.DemodulRefl(ph1, ph2, ph3);
+                var bf = Matrix.ButterworthFilter(df);
+                var sm = Matrix.Resampling(bf);
+                for (int j = 0; j < 1984; j++)
+                {
+                    // chart1.Series[0].Points.AddXY(j, matrix[0,j]);
+                    chart1.Series[1].Points.AddXY(j, df[j, 0]);
+                    chart1.Series[2].Points.AddXY(j, bf[j, 0]);
+                }
+                for (int j = 0; j <sm.M; j++)
+                    chart2.Series[0].Points.AddXY(j, sm[j, 0]);
+               
             }
-            
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

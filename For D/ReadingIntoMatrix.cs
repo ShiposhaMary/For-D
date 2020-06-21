@@ -20,12 +20,13 @@ namespace For_D
 
         Matrix matrix = new Matrix(5952,103);
             for (int j = 0; j < 103; j++)
-            {
+           {
                 for (int i = 0; i <5952; i++)
                 {
-                    matrix[i, j] = (int)reader.ReadUInt16();
+                        matrix[i, j] = (int)reader.ReadUInt16();
+                    
                 }
-            }
+           }
             reader.Close();
             return matrix;
             

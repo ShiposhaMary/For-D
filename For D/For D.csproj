@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Butterworth .cs" />
+    <Compile Include="Resampling.cs" />
     <Compile Include="ReadingIntoMatrix.cs" />
     <Compile Include="Demodul refl.cs" />
     <Compile Include="Matrix.cs" />
