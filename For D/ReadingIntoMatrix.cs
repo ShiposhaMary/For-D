@@ -9,11 +9,11 @@ namespace For_D
 {
     public partial class Matrix
     {
-        public static string fileName;
-        public static Matrix Reading(string path)
+       // public static string fileName;
+        public static Matrix Reading(string filename)
         {
-        fileName = path;
-        BinaryReader reader = new BinaryReader(File.Open(fileName, FileMode.Open));
+       // fileName = path;
+        BinaryReader reader = new BinaryReader(File.Open(filename, FileMode.Open));
         var a = reader.ReadUInt32();
         reader.ReadBytes((int) a);
          var c = (int)reader.ReadUInt32();

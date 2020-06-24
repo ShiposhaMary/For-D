@@ -12,7 +12,7 @@ namespace For_D
     {
       public static  Matrix resBuffer;
         public static BinaryWriter sw;
-        public static FileStream fs;
+       // public static FileStream fs;
         public static string path;
         
         public static void Resampling(Matrix data)
