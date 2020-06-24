@@ -64,10 +64,7 @@ namespace For_D
             var mat = new Matrix(data1.M, data1.N);
             mat.ActionOverMatrix((i, j) =>
             {
-                //for (var x = 0; x < data1.M; x++)
-               // {
                     mat[i, j] = data1[i, j] -data2[i, j];
-               // }
             });
             return mat;
         }
@@ -78,10 +75,7 @@ namespace For_D
             var mat = new Matrix(data1.M, data1.N);
             mat.ActionOverMatrix((i, j) =>
             {
-               // for (var x = 0; x < data1.M; x++)
-               // {
                     mat[i, j] = data1[i, j] + data2[i, j];
-               // }
             });
             return mat;
         }

@@ -9,19 +9,20 @@ namespace For_D
 {
     public partial class Matrix
     {
-       // public static string fileName;
+        public static int matrixM;
+        public static int matrixN;
+
         public static Matrix Reading(string filename)
         {
-       // fileName = path;
         BinaryReader reader = new BinaryReader(File.Open(filename, FileMode.Open));
         var a = reader.ReadUInt32();
         reader.ReadBytes((int) a);
-         var c = (int)reader.ReadUInt32();
+        var c = (int)reader.ReadUInt32();
 
-        Matrix matrix = new Matrix(5952,103);
-            for (int j = 0; j < 103; j++)
+        Matrix matrix = new Matrix(matrixM,matrixN);
+            for (int j = 0; j < matrixN; j++)
            {
-                for (int i = 0; i <5952; i++)
+                for (int i = 0; i <matrixM; i++)
                 {
                         matrix[i, j] = (int)reader.ReadUInt16();
                     
