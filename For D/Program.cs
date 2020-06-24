@@ -26,6 +26,7 @@ namespace For_D
             Matrix.matrixM = int.Parse(ConfigurationManager.AppSettings["matrixM"]);
             Matrix.matrixN = int.Parse(ConfigurationManager.AppSettings["matrixN"]);
             int sizeRes = int.Parse(ConfigurationManager.AppSettings["sizeRes"]);
+            string resultDerictory= ConfigurationManager.AppSettings.Get("resultDirectory");
             int sr = sizeRes;
             Matrix.bfBuffer = new double[6, Matrix.matrixN];
             string[] source = Directory.GetFiles(ConfigurationManager.AppSettings.Get("sourceDirectory"));
@@ -39,7 +40,7 @@ namespace For_D
 
                 if (sr == sizeRes)
                 {
-                    Matrix.path = @"C:\Work\For D\For D\Resampling\" + Path.GetFileNameWithoutExtension(file) + ".bin";
+                    Matrix.path = resultDerictory + Path.GetFileNameWithoutExtension(file) + ".bin";
                     
                 }
                 Matrix matrix = Matrix.Reading(file);
