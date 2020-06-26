@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Security.Permissions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,11 +12,18 @@ namespace For_D
 {
     static class Program
     {
-        
-        
-      
+        public static int sr;
+        public static int sizeRes;
+        public static string resultDerictory;
+
+
         [STAThread]
-        static void Main()
+        public static void Main()
+        {
+            Run();
+        }
+        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+        private static void Run()
         {
             Matrix.A1 = double.Parse(ConfigurationManager.AppSettings["A1"]);
             Matrix.A2 = double.Parse(ConfigurationManager.AppSettings["A2"]);
@@ -25,36 +34,51 @@ namespace For_D
             Matrix.B3 = double.Parse(ConfigurationManager.AppSettings["B3"]);
             Matrix.matrixM = int.Parse(ConfigurationManager.AppSettings["matrixM"]);
             Matrix.matrixN = int.Parse(ConfigurationManager.AppSettings["matrixN"]);
-            int sizeRes = int.Parse(ConfigurationManager.AppSettings["sizeRes"]);
-            string resultDerictory= ConfigurationManager.AppSettings.Get("resultDirectory");
-            int sr = sizeRes;
+            sizeRes = int.Parse(ConfigurationManager.AppSettings["sizeRes"]);
+            resultDerictory = ConfigurationManager.AppSettings.Get("resultDirectory");
+            sr = sizeRes;
             Matrix.bfBuffer = new double[6, Matrix.matrixN];
-            string[] source = Directory.GetFiles(ConfigurationManager.AppSettings.Get("sourceDirectory"));
-            foreach (var file in source)
+            // string[] source = Directory.GetFiles(ConfigurationManager.AppSettings.Get("sourceDirectory"));
+            // foreach (var file in source)
+            string source = ConfigurationManager.AppSettings.Get("sourceDirectory");
+            using (FileSystemWatcher watcher = new FileSystemWatcher(source))
             {
-                if (sr == 0)
-                {
-                    sr = sizeRes;
-
-                }
-
-                if (sr == sizeRes)
-                {
-                    Matrix.path = resultDerictory + Path.GetFileNameWithoutExtension(file) + ".bin";
-                    
-                }
-                Matrix matrix = Matrix.Reading(file);
-                var ph = Matrix.MatrixSeparation(matrix);
-                var ph1 = ph.x;
-                var ph2 = ph.y;
-                var ph3 = ph.z;
-                var df = Matrix.DemodulRefl(ph1, ph2, ph3);
-                var bf = Matrix.ButterworthFilter(df);
-                Matrix.Resampling(bf);
-                sr--;
+                watcher.NotifyFilter = NotifyFilters.FileName;
+                watcher.Filter = "";
+                watcher.Created += OnChanged;
+                watcher.EnableRaisingEvents = true;
+                while (Console.Read() != 'e') ;
             }
         }
-       
+      
+        private static void OnChanged(object source, FileSystemEventArgs e)
+        {
+            string name = e.Name;
+            string fullPath = e.FullPath;
+            if (sr == 0)
+            {
+                sr = sizeRes;
+
+            }
+
+            if (sr == sizeRes)
+            {
+                Matrix.path = resultDerictory + name + ".bin";
+
+            }
+            
+            Matrix matrix = Matrix.Reading(fullPath);
+            var ph = Matrix.MatrixSeparation(matrix);
+            var ph1 = ph.x;
+            var ph2 = ph.y;
+            var ph3 = ph.z;
+            var df = Matrix.DemodulRefl(ph1, ph2, ph3);
+            var bf = Matrix.ButterworthFilter(df);
+            Matrix.Resampling(bf);
+            File.Delete(fullPath);
+            sr--;
+
+        }
     }
 }
 
