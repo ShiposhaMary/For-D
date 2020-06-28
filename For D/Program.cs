@@ -26,6 +26,7 @@ namespace For_D
         private static void Run()
         {
             Matrix.A1 = double.Parse(ConfigurationManager.AppSettings["A1"]);
+           // Matrix.A1 = double.Parse(TextBox1.Text);
             Matrix.A2 = double.Parse(ConfigurationManager.AppSettings["A2"]);
             Matrix.A3 = double.Parse(ConfigurationManager.AppSettings["A3"]);
             Matrix.B0 = double.Parse(ConfigurationManager.AppSettings["B0"]);
@@ -53,7 +54,6 @@ namespace For_D
       
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
-            string name = e.Name;
             string fullPath = e.FullPath;
             if (sr == 0)
             {
@@ -63,7 +63,7 @@ namespace For_D
 
             if (sr == sizeRes)
             {
-                Matrix.path = resultDerictory + name + ".bin";
+                Matrix.path = resultDerictory + e.Name + ".bin";
 
             }
             
