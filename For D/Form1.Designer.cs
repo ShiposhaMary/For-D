@@ -59,7 +59,6 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -149,6 +148,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(622, 20);
             this.textBox7.TabIndex = 7;
+            this.textBox7.Click += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // textBox6
             // 
@@ -156,6 +156,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(622, 20);
             this.textBox6.TabIndex = 6;
+            this.textBox6.Click += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // textBox5
             // 
@@ -163,6 +164,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(622, 20);
             this.textBox5.TabIndex = 5;
+            this.textBox5.Click += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox4
             // 
@@ -170,6 +172,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(622, 20);
             this.textBox4.TabIndex = 4;
+            this.textBox4.Click += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox3
             // 
@@ -177,6 +180,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(622, 20);
             this.textBox3.TabIndex = 3;
+            this.textBox3.Click += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox2
             // 
@@ -184,6 +188,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(622, 20);
             this.textBox2.TabIndex = 2;
+            this.textBox2.Click += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -191,6 +196,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(622, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Click += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -247,6 +253,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(567, 20);
             this.textBox9.TabIndex = 9;
+            this.textBox9.Click += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // textBox8
             // 
@@ -254,6 +261,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(567, 20);
             this.textBox8.TabIndex = 8;
+            this.textBox8.Click += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // groupBox3
             // 
@@ -292,6 +300,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(567, 20);
             this.textBox11.TabIndex = 10;
+            this.textBox11.Click += new System.EventHandler(this.textBox11_TextChanged);
             // 
             // textBox10
             // 
@@ -299,6 +308,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(567, 20);
             this.textBox10.TabIndex = 9;
+            this.textBox10.Click += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // groupBox4
             // 
@@ -326,6 +336,7 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(567, 20);
             this.textBox12.TabIndex = 10;
+            this.textBox12.Click += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // button1
             // 
@@ -347,21 +358,9 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 487);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(265, 17);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Использовать данные из файла конфигурации";
-            this.checkBox1.UseVisualStyleBackColor = true;
-           
-            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(693, 562);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox4);
@@ -380,7 +379,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -417,6 +415,5 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
