@@ -111,9 +111,6 @@ namespace For_D
             tokenSource.Cancel();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
