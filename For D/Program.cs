@@ -25,27 +25,14 @@ namespace For_D
         public static void Main()
         {
             Application.Run(new Form1());
-          // Run();
         }
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public static void Run(CancellationToken cancellationToken)
         {
-           // Matrix.A1 = double.Parse(ConfigurationManager.AppSettings["A1"]);
-            //Matrix.A2 = double.Parse(ConfigurationManager.AppSettings["A2"]);
-            //Matrix.A3 = double.Parse(ConfigurationManager.AppSettings["A3"]);
-            //Matrix.B0 = double.Parse(ConfigurationManager.AppSettings["B0"]);
-            //Matrix.B1 = double.Parse(ConfigurationManager.AppSettings["B1"]);
-            //Matrix.B2 = double.Parse(ConfigurationManager.AppSettings["B2"]);
-            //Matrix.B3 = double.Parse(ConfigurationManager.AppSettings["B3"]);
-            //Matrix.matrixM = int.Parse(ConfigurationManager.AppSettings["matrixM"]);
-            //Matrix.matrixN = int.Parse(ConfigurationManager.AppSettings["matrixN"]);
-            //sizeRes = int.Parse(ConfigurationManager.AppSettings["sizeRes"]);
-            //resultDerictory = ConfigurationManager.AppSettings.Get("resultDirectory");
-            sr = sizeRes;
             Matrix.bfBuffer = new double[6, Matrix.matrixN];
             // string[] source = Directory.GetFiles(ConfigurationManager.AppSettings.Get("sourceDirectory"));
             // foreach (var file in source)
-           //string source = ConfigurationManager.AppSettings.Get("sourceDirectory");
+           
             using (FileSystemWatcher watcher = new FileSystemWatcher(source))
             {
                 watcher.NotifyFilter = NotifyFilters.FileName;

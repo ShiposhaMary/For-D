@@ -59,6 +59,7 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -303,7 +304,7 @@
             // 
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.textBox12);
-            this.groupBox4.Location = new System.Drawing.Point(13, 429);
+            this.groupBox4.Location = new System.Drawing.Point(12, 435);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(668, 45);
             this.groupBox4.TabIndex = 3;
@@ -346,9 +347,20 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(12, 487);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(265, 17);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "Использовать данные из файла конфигурации";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(693, 562);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox4);
@@ -367,6 +379,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -403,5 +416,6 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
