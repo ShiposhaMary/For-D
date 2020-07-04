@@ -70,7 +70,7 @@ namespace For_D
 
         private async void button1_Click(object sender, EventArgs e)
         {  
-            if (checkBox1.Checked == true)
+            if (checkBox1.Checked)
             {
                 Matrix.A1 = double.Parse(ConfigurationManager.AppSettings["A1"]);
                 Matrix.A2 = double.Parse(ConfigurationManager.AppSettings["A2"]);
@@ -109,6 +109,11 @@ namespace For_D
         private void button2_Click(object sender, EventArgs e)
         {
             tokenSource.Cancel();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
