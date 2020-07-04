@@ -29,6 +29,7 @@ namespace For_D
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public static void Run(CancellationToken cancellationToken)
         {  //tvoyu mat'
+            sr = sizeRes;
             Matrix.bfBuffer = new double[6, Matrix.matrixN];
             // string[] source = Directory.GetFiles(ConfigurationManager.AppSettings.Get("sourceDirectory"));
             // foreach (var file in source)
